@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import AuthProvider from '@/SessionProvider'
 import Navbar from '@/components/Navbar'
+import { ThemeProvider } from '@/lib/ThemeProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,10 +13,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en"
+    className={(inter.className, "dark")}
+    style={{
+      colorScheme: "dark",
+    }}
+    >
+      <body>
         <AuthProvider>
-          <div
+    <ThemeProvider>
+    <div
                  className="
                  flex
                  min-h-screen
@@ -30,6 +37,7 @@ export default function RootLayout({ children }) {
         {children}
          </main>
          </div>
+    </ThemeProvider>
         </AuthProvider>
         </body>
     </html>
