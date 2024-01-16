@@ -49,3 +49,14 @@ model User {
   sessions      Session[]
 
 }
+
+model Collection {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  userId    String
+  color     String
+  createdAt DateTime @default(now())
+
+
+  @@unique([name, userId])
+}
