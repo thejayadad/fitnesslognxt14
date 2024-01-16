@@ -15,9 +15,20 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-         <div className='flex ga-4'>
-         <Navbar />
+          <div
+                 className="
+                 flex
+                 min-h-screen
+                 w-full
+                 flex-col
+                 items-center
+                 dark:bg-black"
+          >
+
+          <Navbar />
+        <main className="flex flex-grow w-full justify-center items-center dark:bg-neutral-950">
         {children}
+         </main>
          </div>
         </AuthProvider>
         </body>
